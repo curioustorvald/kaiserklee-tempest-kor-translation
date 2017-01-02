@@ -1,0 +1,152 @@
+% !TEX TS-program = lualatex
+
+\documentclass[stock, chapter, 10.5pt, romanfixed, interword, openany, finemath, footnote]{oblivoir}
+
+\usepackage[]{luatexko}
+
+\setmainfont[BoldFont={LinLibertineOB}]{LinLibertineO}
+\setmainhangulfont{UnBatangOTF-Book}[BoldFont={UnBatangOTF-Bold}, InterHangul=-.0852em, Protrusion, Expansion] % 본문용, 자간을 줄임
+\hangulpunctuations=1
+\registerpunctuations{"20, "2C, "2E, "3A, "3B, "3F, "2014, "2018, "2019, "201C, "201D} % these glyphs are recognise as puncts
+\newfontfamily\sffamily{SpoqaHanSans-Regular}[BoldFont={SpoqaHanSans-Bold}, InterHangul=-.0852em, Protrusion, Expansion]
+\newfontfamily\sflight{UnBatangOTF-Light}[Protrusion, Expansion] % 가는체, 본문용이 아니므로 자간을 줄이지 않음
+\newfontfamily\runes{NotoSansRunic}
+
+\usepackage{fapapersize}
+\usefapapersize{154mm,224mm,23mm,*,22mm,25mm} % 신국판. 여백은 32줄에 맞추어짐
+\usepackage{afterpage}
+\usepackage{hyperref}
+\usepackage[xcolor]{mdframed}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[verbose=true]{microtype}
+\usepackage{ltablex}
+\usepackage{calc} % 길이 좀 편하게 넣읍시다
+\usepackage{lineno} % 디버그용 줄 번호 인자기
+\usepackage{chngcntr} % 챕터가 바뀌어도 각주 번호가 유지되게
+\counterwithout{footnote}{chapter}
+
+\makeatletter
+\newlength{\mytextsize}
+\setlength{\mytextsize}{\f@size pt}
+\newlength{\mybaselineskip}
+\setlength{\mybaselineskip}{1.14286\mytextsize} % unaltered baselineskip
+\makeatother
+
+\usepackage[fontsize=\mytextsize,baseline=\mybaselineskip,lines=43]{grid} % lines=43, 한글 조판 시 32줄 삽입됨 (underfull이 발생함)
+
+
+\DeclareMicrotypeSet{dhucsmicro}{encoding=LUC} % micro kerning masterrace
+\UseMicrotypeSet[expansion]{dhucsmicro}
+
+\definecolor{note}{RGB}{239,239,239}
+
+\mdfdefinestyle{noteframe}{linewidth=0pt, backgroundcolor=note, innermargin=.25in, outermargin=.25in, innertopmargin=12pt, innerbottommargin=12pt}
+
+\hypersetup{% this goes to PDF's document info
+  pdfauthor={원작 kaiserklee · 번역 Torvald},
+  pdftitle={Tempest  템페스트},
+  unicode=true
+}
+
+\frenchspacing % No, I will not give extra spaces after periods
+\setlength{\parindent}{1em} % Korean exclusive
+%\addfontfeature{RawFeature=+hlig} % Libertine's s_t and other ligatures % 본문에서 끌 수가 없으므로 사용하지 말 것
+
+
+\input{makestyle} % don't try to understand this; it's full of hacks
+\input{proper_noun_exception_list} % 고유명사 금칙 처리
+
+
+\newcommand\cedp{\newpage{\pagestyle{empty}\cleardoublepage}} % clear double page
+\newcommand\cep{\afterpage{\pagestyle{empty}\null\newpage}} % clear a page
+
+\newcommand\forceindent{\hskip\parindent}
+
+\newcommand{\Tempest}[1]{\rmfamily\fontsize{#1}{#1}\selectfont Tempe\symbol{"FB06}} % Tempest with historic s_t ligature
+\newcommand{\TempestAuthors}[1]{{\sffamily\fontsize{#1}{#1}\selectfont 원작} {\sffamily\fontsize{#1}{#1}\selectfont kaiserklee}{\sffamily\fontsize{#1}{#1}\selectfont \  ·\ 번역} {\sffamily\fontsize{#1}{#1}\selectfont Torvald}}
+
+% \mytextsize: current text size in points  현재 글꼴 크기 (포인트)
+
+\newcommand{\booktitle}{템페스트} % 텍스트만 담을 것!
+
+\title{\Tempest{1.714\mytextsize} \\ \Large\booktitle}
+\date{}
+\author{\TempestAuthors{.9\mytextsize}}
+
+
+\begin{document}
+
+\flushbottom % ?!?
+
+\oblivoirchapterstyle{smallChapterNoNum}
+\clearpage\maketitle
+\thispagestyle{empty}
+
+\chapter*{}
+\vfill
+\parbox{\textwidth}{\footnotesize
+
+\input{Tempest_kor_disclaimer}
+}
+\thispagestyle{empty}
+
+\pagestyle{nochapterlabel}
+\tableofcontents*
+\thispagestyle{nochapterlabel}
+
+\cep
+\cedp
+
+\openany
+
+\pagestyle{tempest}
+
+
+%\linenumbers % 줄번호를 인자함. 디버그용
+\input{Tempest_kor}
+
+\openright \part*{부\hskip.5em록}
+
+\input{Tempest_side_kor}
+
+%IN TOC FILE:
+
+% \contentsline {chapter}{\chapternumberline {12\,장}
+% \contentsline {chapter}{\chapternumberline {외전 2}
+
+%%%%
+
+\openleft
+
+\chapter*{}
+
+\pagestyle{empty}
+\vfill
+\parbox{\textwidth}{\footnotesize\parindent0cm\setstretch{1.2}
+
+\input{Tempest_kor_revisions}
+
+~
+
+\input{Tempest_kor_authors}
+
+~
+
+원문 출처
+
+\input{Tempest_kor_original_texts}
+
+\textbreak
+
+\input{Tempest_kor_copyright}
+
+~
+
+{\runes ᚢᛂᚴᛋᛅᛘᛁᚧ᛬ᛅᛚᛁᛦ᛭ᛂᛚᛋᛅ᛭ᛏᚱᚢᛏᚾᛁᚾᚴᚢᚾᛅ᛬ᛅᚱᚾᛅᛏᛅᛚᛋ}
+
+}
+
+\end{document}
+
+%% Vegsamið allir Elsa dróttninguna Árnadals %%

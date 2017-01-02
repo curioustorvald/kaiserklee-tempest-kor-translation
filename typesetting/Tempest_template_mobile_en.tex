@@ -1,0 +1,241 @@
+%% COPYRIGHT 2014-2015 SKYHI14 AKA TORVALD %%
+%% ORIGINAL TEXT COPYRIGHT 2013-2015 KAISERKLEE AKA KENNETH %%
+
+%% LaTeX template (excl. contents of the fiction) and image ‘typesettingBreak-snowflake’ and ‘typesettingBullet-snowflake’ Copyright 2014-2015 skyhi14 aka Torvald, released as CC-BY %%
+
+\documentclass[stock, chapter, 14pt, romanfixed, interword, openany, finemath]{oblivoir}
+
+\usepackage[strictcharcheck]{kotex}
+\usepackage{dhucs-untype1}
+\usepackage{fapapersize}
+\usefapapersize{6in,9in,0.5in,*,0.5in,0.75in} %memoir 전자책
+\usepackage{hyperref}
+\usepackage[xcolor]{mdframed}
+\usepackage{graphicx}
+\usepackage{allrunes}
+\usepackage[verbose=true]{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{librecaslon}
+
+\mdfdefinestyle{noteframe}{linewidth=0pt, backgroundcolor=note, innermargin=.25in, outermargin=.25in, innertopmargin=12pt, innerbottommargin=12pt}
+
+\definecolor{note}{RGB}{239,239,239}
+
+\hypersetup{
+  pdfauthor={kaiserklee (/u/kaiserklee) · typesetting by Torvald (/u/skyhi14)},
+  pdftitle={Tempest}
+}
+
+\linespread{1.25}
+\setlength{\parindent}{1em}
+
+\newcommand{\textbreak}{
+\begin{center}\includegraphics[height=17.333pt]{typesettingBreak-snowflake.pdf}\end{center}\vskip-1ex
+\everypar{{\setbox0\lastbox}\everypar{}}
+}
+
+\newcommand\forceindent{\hskip\parindent}
+
+\title{\huge Tempest}
+\date{}
+\author{\sffamily\small kaiserklee}
+
+\makechapterstyle{smallChapterNoNum}{%
+%장 표제 상단에는 1행간을 넣는다. 하단에는 5행간을 넣는다. 우리는 1.333 행간을 쓰고 있
+%으므로 \onelineskip에 이 값을 곱해주어야 한다.
+\setlength{\beforechapskip}{-1.333\onelineskip}
+\setlength{\afterchapskip}{1.333\onelineskip}
+\setlength{\midchapskip}{0pt}
+%몇 가지 기본값 간격 매크로를 정의한다. 항번과 장 표제 문단은 동일한 선상에 있으므로
+%개행과 수직 간격을 주지 않는다.
+\renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
+\renewcommand{\afterchapternum}{\hskip0pt}
+%폰트에 관련된 설정을 행한다. \Huge는 약 20pt이므로 장 표제 문단 식자에 적절하다.
+\renewcommand{\chapnamefont}{\normalfont\bfseries\Large}
+\renewcommand{\chapnumfont}{\normalfont\bfseries\Large}
+\renewcommand{\chaptitlefont}{\normalfont\bfseries\Large}
+%이제 항번 부분을 설정한다.
+\renewcommand{\chapternamenum}{}
+\renewcommand{\prechapternum}{\centering\includegraphics[height=18.2pt]{typesettingBullet-snowflake.pdf}\\}
+\renewcommand{\postchapternum}{}
+\renewcommand{\printchapternum}{} %장 번호를 출력하지 않음
+%\renewcommand{\printchapternum}{\chapnamefont\thechapter\Large장}
+%장 표제 문단을 식자하는 코드를 추가한다.
+\renewcommand{\printchaptertitle}[1]{\hskip.5em\chaptitlefont\Large ##1}
+\renewcommand{\afterchaptertitle}{%
+\par\nobreak\vskip2pt\vskip\afterchapskip}
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%% TOC %%
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\printtoctitle}{\centering\Large\bfseries}
+
+\newlength\mylen
+\setlength\mylen{.5\linewidth}
+\renewcommand{\cftchapteraftersnum}{\ }
+\renewcommand{\cftchapteraftersnumb}{\newline\normalfont\fontsize{14pt}{1em}\selectfont\bfseries\vspace{-2ex}}
+\renewcommand{\cftchapterleader}{}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+
+\makeatletter
+\renewcommand*{\l@chapapp}[3]{%
+  \ifnum \c@tocdepth >\m@ne
+    \cftchapterbreak
+    \vskip\cftbeforechapterskip%
+    \centering%
+    {\memRTLrightskip0pt%
+     \@afterindenttrue%
+     \interlinepenalty\@M%
+     \leavevmode%
+     \let\@cftbsnum\cftchapterpresnum
+     \let\@cftasnum\cftchapteraftersnum%
+     \let\@cftasnumb\cftchapteraftersnumb%
+     \def\@chapapp@head{}%
+     \setlength{\@tempdima}{\mylen}%
+  %args1: 장 번호 글꼴
+     {\vspace{-0.5ex}\cftchapterfont\sffamily\fontseries{m}\fontsize{11pt}{1em}\selectfont#1}\nobreak%
+     %args2: 쪽 번호
+    ~ · \cftchapterfillnum{\sffamily\small#2}}%
+  \fi}
+  
+%장 번호
+\renewcommand{\chapternumberline}[1]{%
+  \chapternumberlinehook{#1}%
+  \hb@xt@\@tempdima{\hfil\@chapapp@head\@cftbsnum #1\@cftasnum\hfil}%
+  \@cftasnumb}
+
+%파트 (부록---외전)
+\renewcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  {\centering\includegraphics[height=60pt]{typesettingBullet-snowflake.pdf} \\}
+  \secdef\@part\@spart}
+\makeatother
+
+%쪽지 스타일
+\newenvironment{letter}
+{
+\mdfdefinestyle{noteframe}{linewidth=0pt, backgroundcolor=note, innermargin=.25in, outermargin=.25in, innertopmargin=12pt, innerbottommargin=12pt}
+\definecolor{note}{RGB}{239,239,239}
+\begin{mdframed}[style=noteframe]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\vspace{-1.0\baselineskip} }
+{\end{mdframed}
+\everypar{{\setbox0\lastbox}\everypar{}}
+}
+
+\setlength{\droptitle}{80pt}
+
+%면주
+\makeatletter
+%Tempest 면주
+\makepagestyle{tempest}
+%상단 비우기
+\makeevenhead{tempest}{}{}{}
+\makeoddhead{tempest}{}{}{}
+%하단 좌측
+\makeevenfoot{tempest}{\footnotesize \leftmark}{}{\footnotesize \thepage}
+%하단 우측
+\def\chaptermark#1{{\@chapapp. \  #1}{}}
+\def\thechapter{}
+%leftmark 컨트롤
+\addtopsmarks{tempest}{}{
+    \createmark{chapter}{left}{shownumber}{}{ \ }
+}
+\makeoddfoot{tempest}{\footnotesize \leftmark}{}{\footnotesize \thepage}
+
+%nochapterlabel 면주
+\makepagestyle{nochapterlabel}
+%상단 비우기
+\makeevenhead{nochapterlabel}{}{}{}
+\makeoddhead{nochapterlabel}{}{}{}
+%하단 좌측
+\makeevenfoot{nochapterlabel}{}{}{\footnotesize \thepage}
+%하단 우측
+\makeoddfoot{nochapterlabel}{}{}{\footnotesize \thepage}
+
+\let\ps@plain\ps@nochapterlabel
+
+\makeatother
+
+\begin{document}
+
+\oblivoirchapterstyle{smallChapterNoNum}
+\clearpage\maketitle
+\thispagestyle{empty}
+
+
+\tableofcontents*
+
+\pagestyle{tempest}
+
+\input{Tempest}
+
+\part*{Appendices}
+
+\input{Tempest_side}
+
+% \contentsline {chapter}{\chapternumberline {Chapter 12}
+% \contentsline {chapter}{\chapternumberline {}
+
+%%%%
+
+\chapter*{}
+
+\pagestyle{empty}
+
+\vfill
+
+\parbox{\textwidth}{\small\parindent0cm
+
+Ver. 1\quad2015-04-29
+
+Ver. 1.1\quad2015-05-14
+
+Ver. 1.2\quad2015-05-20
+
+Ver. 1.3\quad2015-06-03
+
+Errors in \emph{typesetting} can be reported to /u/skyhi14.
+
+~
+
+Original texts
+
+\emph{Tempest} \href{https://www.fanfiction.net/s/9972423}{www.fanfiction.net/s/9972423}
+
+\emph{Tempest: Fine Dining} \href{https://www.fanfiction.net/s/10124911}{www.fanfiction.net/s/10124911}
+
+\emph{Tempest: Checkmate} \href{https://www.fanfiction.net/s/10146380}{www.fanfiction.net/s/10146380}
+
+\emph{Tempest: Unlucky Number Thirteen} \href{https://www.fanfiction.net/s/10393787}{www.fanfiction.net/s/10393787}
+
+\emph{Tempest: An Almost Meeting} \href{https://www.fanfiction.net/s/10499016}{www.fanfiction.net/s/10499016}
+
+\textbreak
+
+The original text is copyrighted to its author.
+
+~
+
+\textarn{\textst{uiksamiþ.aliR+ilsa+trutninkuna.arnatals}}
+
+}
+
+\end{document}
+
+%% Vegsamið allir Elsa dróttninguna Árnadals %%

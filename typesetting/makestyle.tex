@@ -1,0 +1,167 @@
+% makestyle.tex
+
+\makeatletter
+
+\renewcommand\ldots{.\hspace*{.06em}.\hspace*{.06em}.} % 일립시스 (2015 개정 맞춤법에서 허용됨)
+\renewcommand{\baselinestretch}{1.333} % 그냥 기본값 (baselineskip을 onelineskip으로 나눈 값과 동치)
+
+
+%% Paragraph breaker  문단 끊개 (spans two lines  텍스트 두 줄 어치) %%
+
+%\newlength{\mytextsize} % 앞에서 선언됨  Already been declared on the preamble
+%\setlength{\mytextsize}{\f@size pt}
+
+\newlength{\figsize}
+\setlength{\figsize}{\baselineskip}
+
+
+\newcommand{\textbreak}{
+% (두 줄 만들어서 첫째 줄과 둘째 줄이 항상 붙어있게, 둘째 줄에 그래픽 삽입)
+% (Make two lines, these are always appear on the same page, includegraphics on the second line)
+\par % 빠지면 안 됨!
+\noindent\symbol{"3000}\par % 채움 문자 \symbol{"3000} 빠지면 안 됨!
+\vspace*{0ex} % glues first and second line (this is called "hack", bitch!)
+%\noindent{\hfill\includegraphics[height=\figsize]{typesettingBreak-snowflake.pdf}\hspace*{\fill}} % 지우지 말고 냅 둬봐...
+\noindent{\hfill\raisebox{.366\mytextsize}{\includegraphics[height=\figsize]{typesettingBreak-snowflake.pdf}}\hspace*{\fill}} % holy shit it actually works
+\everypar{{\setbox0\lastbox}\everypar{}} % 다음 문단이 들여쓰기 안 되게
+}
+
+%% END OF Paragraph breaker %%
+
+
+
+%% Chapter header styling  챕터 제목 스타일링 %%
+\makechapterstyle{smallChapterNoNum}{%
+%장 표제 상단에는 1행간을 넣는다. 하단에는 5행간을 넣는다. 우리는 1.333 행간을 쓰고 있
+%으므로 \onelineskip에 이 값을 곱해주어야 한다.
+\setlength{\beforechapskip}{-\baselineskip} %-1.333\onelineskip
+\setlength{\afterchapskip}{\baselineskip}  % 1.333\onelineskip
+\setlength{\midchapskip}{0pt}
+%몇 가지 기본값 간격 매크로를 정의한다. 항번과 장 표제 문단은 동일한 선상에 있으므로
+%개행과 수직 간격을 주지 않는다.
+\renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
+\renewcommand{\afterchapternum}{\hskip0pt}
+%폰트에 관련된 설정을 행한다. \Huge는 약 20pt이므로 장 표제 문단 식자에 적절하다.
+\renewcommand{\chapnamefont}{\bfseries\Large}
+\renewcommand{\chapnumfont}{\bfseries\Large}
+\renewcommand{\chaptitlefont}{\bfseries\Large}
+%이제 항번 부분을 설정한다.
+\renewcommand{\chapternamenum}{}
+\renewcommand{\prechapternum}{\centering\includegraphics[height=\baselineskip]{typesettingBullet-snowflake.pdf}\\}
+\renewcommand{\postchapternum}{}
+\renewcommand{\printchapternum}{} %장 번호를 출력하지 않음
+%\renewcommand{\printchapternum}{\chapnamefont\thechapter\Large장}
+%장 표제 문단을 식자하는 코드를 추가한다.
+\renewcommand{\printchaptertitle}[1]{\hskip.5em\chaptitlefont\Large ##1}
+\renewcommand{\afterchaptertitle}{%
+\par\nobreak\vspace*{.970em}\vskip\afterchapskip}
+}
+%% END OF Chapter header styling %%
+
+
+%% TOC %%
+\renewcommand{\contentsname}{목\hskip.5em차}
+\renewcommand{\printtoctitle}{\centering\Large\bfseries}
+
+\newlength\mylen
+\setlength\mylen{.5\linewidth}
+\renewcommand{\cftchapteraftersnum}{\ }
+\renewcommand{\cftchapteraftersnumb}{\newline\normalfont\fontsize{10.5pt}{1em}\selectfont\bfseries}
+\renewcommand{\cftchapterleader}{}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+
+
+%장 번호
+\renewcommand{\chapternumberline}[1]{%
+\chapternumberlinehook{#1}%
+\hb@xt@\@tempdima{\hfil\@chapapp@head\@cftbsnum #1\@cftasnum\hfil}%
+\@cftasnumb
+}
+
+\renewcommand*{\l@chapapp}[3]{%
+\ifnum \c@tocdepth >\m@ne
+  \cftchapterbreak
+  \vskip\cftbeforechapterskip%
+  \centering%
+  {\memRTLrightskip0pt%
+   \@afterindenttrue%
+   \interlinepenalty\@M%
+   \leavevmode%
+   \let\@cftbsnum\cftchapterpresnum
+   \let\@cftasnum\cftchapteraftersnum%
+   \let\@cftasnumb\cftchapteraftersnumb%
+   \def\@chapapp@head{}%
+   \setlength{\@tempdima}{\mylen}%
+%args1: 장 번호 글꼴
+   {\cftchapterfont\sffamily\fontseries{m}\fontsize{8pt}{1em}\selectfont#1}\nobreak%
+   %args2: 쪽 번호
+  ~ ·\ \ \cftchapterfillnum{\sffamily\small#2}}%
+\fi
+}
+
+%파트 (부록—외전)
+\renewcommand\part{%
+\if@openright
+  \cleardoublepage
+\else
+  \clearpage
+\fi
+\thispagestyle{empty}%
+\if@twocolumn
+  \onecolumn
+  \@tempswatrue
+\else
+  \@tempswafalse
+\fi
+\null\vfil
+{\centering\includegraphics[height=48pt]{typesettingBullet-snowflake.pdf} \\}
+\secdef\@part\@spart
+}
+
+
+%쪽지 스타일
+\newenvironment{letter}
+{
+\mdfdefinestyle{noteframe}{linewidth=0pt, backgroundcolor=note, innermargin=.25in, outermargin=.25in, innertopmargin=12pt, innerbottommargin=12pt}
+\definecolor{note}{RGB}{239,239,239}
+\begin{mdframed}[style=noteframe]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\vspace{-1.0\baselineskip} }
+{\end{mdframed}
+\everypar{{\setbox0\lastbox}\everypar{}}
+}
+
+\setlength{\droptitle}{80pt}
+
+%면주
+%Tempest 면주
+\makepagestyle{tempest}
+%상단 비우기
+\makeevenhead{tempest}{}{}{}
+\makeoddhead{tempest}{}{}{}
+%하단 좌측
+\makeevenfoot{tempest}{\footnotesize \thepage \quad \footnotesize \booktitle}{}{}
+%하단 우측
+\def\chaptermark#1{\markboth{\@chapapp. \  #1}{}}
+\def\thechapter{}
+%leftmark 컨트롤
+\addtopsmarks{tempest}{}{
+    \createmark{chapter}{left}{shownumber}{}{ \ }
+}
+\makeoddfoot{tempest}{}{}{\footnotesize \leftmark \quad \thepage}
+
+%nochapterlabel 면주
+\makepagestyle{nochapterlabel}
+%상단 비우기
+\makeevenhead{nochapterlabel}{}{}{}
+\makeoddhead{nochapterlabel}{}{}{}
+%하단 좌측
+\makeevenfoot{nochapterlabel}{\footnotesize \thepage \quad \footnotesize \booktitle}{}{}
+%하단 우측
+\makeoddfoot{nochapterlabel}{}{}{\footnotesize \thepage}
+
+\let\ps@plain\ps@nochapterlabel
+
+
+\makeatother
