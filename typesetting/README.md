@@ -33,16 +33,16 @@
 
 이하의 저작물은 __[크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)__ 라이선스로 배포됩니다.
 
-    템페스트 © 2014-2016 Torvald (minjaesong)
-    템페스트—고급스러운 식사 © 2014-2016 Torvald (minjaesong)
-    템페스트—체크메이트 © 2014-2016 Torvald (minjaesong)
-    템페스트—불운의 수 십삼 © 2014-2016 Torvald (minjaesong)
-    템페스트—이루어질 뻔한 만남 © 2014-2016 Torvald (minjaesong)
-    Tempest © 2013-2015 kaiserklee aka Kenneth
-    Tempest: Fine Dining © 2014 kaiserklee aka Kenneth
-    Tempest: Checkmate © 2014 kaiserklee aka Kenneth
-    Tempest: Unlucky Number Thirteen © 2014 kaiserklee aka Kenneth
-    Tempest: An Almost Meeting © 2014 kaiserklee aka Kenneth
+ - 템페스트 © 2014-2016 Torvald (minjaesong)
+ - 템페스트—고급스러운 식사 © 2014-2016 Torvald (minjaesong)
+ - 템페스트—체크메이트 © 2014-2016 Torvald (minjaesong)
+ - 템페스트—불운의 수 십삼 © 2014-2016 Torvald (minjaesong)
+ - 템페스트—이루어질 뻔한 만남 © 2014-2016 Torvald (minjaesong)
+ - Tempest © 2013-2015 kaiserklee aka Kenneth
+ - Tempest: Fine Dining © 2014 kaiserklee aka Kenneth
+ - Tempest: Checkmate © 2014 kaiserklee aka Kenneth
+ - Tempest: Unlucky Number Thirteen © 2014 kaiserklee aka Kenneth
+ - Tempest: An Almost Meeting © 2014 kaiserklee aka Kenneth
 
 
 PDF 작성을 위한 LaTeX, 파이썬, 루아, 셸, 배치 스크립트는 __MIT 허가서__에 의해 배포됩니다.
