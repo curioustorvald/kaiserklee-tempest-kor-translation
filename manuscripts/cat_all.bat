@@ -1,0 +1,2 @@
+
+python cat.py all

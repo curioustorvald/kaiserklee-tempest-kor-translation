@@ -31,7 +31,7 @@ if mode < 1 or mode > 3:
 	print_usage_and_quit()
 
 
-name_list = glob.glob("./??-*.tex")
+name_list = glob.glob("??-*.tex")
 
 main_text_list = []
 side_text_list = []
@@ -43,7 +43,7 @@ side_file = "./Tempest_side_kor.tex"
 name_list.remove(copying[0])
 
 for name in name_list:
-	if name[0:3] == "./9": # if the file starts with 9
+	if name[0:1] == "9": # if the file starts with 9
 		side_text_list.append(name)
 	else:
 		main_text_list.append(name)
