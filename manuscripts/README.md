@@ -6,7 +6,7 @@
 ## 스크립트
 
 - ```cat_all```: 원고를 합쳐 ```Tempest_kor.tex```과 ```Tempest_side_kor.tex```을 작성
-- ```maketex```: 장 번호를 입력 받아 해당 장을 PDF로 작성
+- ```maketex```: 장 번호를 입력 받아 해당 장의 TeX파일을 작성
 
 ### 의존성
 
