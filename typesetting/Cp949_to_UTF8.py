@@ -41,8 +41,8 @@ if not is_p3:
     sys.setdefaultencoding('utf8')
 
 if len(sys.argv) != 3:
-	print("Usage: python Cp949_to_UTF8.py [source_file] [target_file]")
-	print("사용법: python Cp949_to_UTF8.py [입력_파일] [출력_파일]")
+	print("Usage: python Cp949_to_UTF8.py source_file target_file")
+	print("사용법: python Cp949_to_UTF8.py 입력_파일 출력_파일")
 	sys.exit()
 
 if os.path.exists(sys.argv[2]):
