@@ -21,7 +21,6 @@ replacements = {
 '게르다':'\\PNGerda{}',
 '카이':'\\PNKai{}',
 '크리스토프':'\\PNKristoff{}',
-'마법사':'\\PNSorcerer{}',
 '파비안':'\\PNFabian{}',
 '스테판':'\\PNStephan{}',
 '알렉':'\\PNAlek{}',
