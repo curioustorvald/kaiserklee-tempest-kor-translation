@@ -1,0 +1,65 @@
+﻿This file is to make clear of the translation of chapter titles.
+Each chapter is written in a new line, each language is separated by Tab character.
+This file precedes RTF file; in fact, that file should be obsoleted.
+
+이 파일은 각 장의 제목 번역을 명확히하기 위한 파일입니다.
+각 장은 줄로 구분하며, 각 언어는 탭 문자로 구분합니다.
+이 파일은 RTF파일에 우선합니다. RTF파일은 구판으로서, 최신 판으로 취급되지 말아야 합니다.
+
+No. ; English                                 ; Korean           ; Comments
+1   ; Tempest                                 ; 폭풍
+2   ; Cold Winds Blow                         ; 몰아치는 찬 바람
+3   ; Frost-Fires Kindle                      ; 타오르는 차가운 불
+4   ; Black Ice                               ; 살얼음
+5   ; Thundersnow                             ; 소낙눈
+6   ; Starred With Frost                      ; 결빙
+7   ; Diamond Dust                            ; 빙무
+8   ; A Kingdom of Isolation                  ; 그 누구도 없는 왕국 ; Let It Go
+9   ; And It Looks Like I’m the Queen         ; 내가 이곳 여왕이야  ; Let It Go
+10  ; In the Depths of Winter                 ; 추운 겨울 속에
+11  ; There Lay An Invincible Summer          ; 스러지지 않는 여름
+12  ; Puppeteer Behind Shadows                ; 그림자 뒤의 조종자
+13  ; One Persistent Thought                  ; 한 끊임없는 생각
+14  ; Do You Want to Build a Snowman          ; 같이 눈사람 만들래  ; Obvious reference
+15  ; Elsa’s Lament                           ; 엘사의 고뇌
+16  ; Bite Like Chocolate                     ; 초콜릿과 같이
+17  ; Glorious Chained Wings                  ; 영광스러운 얽매인 날개
+18  ; Reforging Old Bonds                     ; 오랜 관계의 재결속
+19  ; Crystals Glitter Upon the Mundane       ; 투명한 두 마음     ; 번역 불가 Fabricated
+20  ; Day One, 72 Hours Remain                ; 첫째 날
+21  ; Two Fronts                              ; 두 전선
+22  ; (Ab)normal Days                         ; (비)정상적인 나날
+23  ; Day Three, 0 Hours Remain               ; 셋째 날
+24  ; The Heartless                           ; 무심한(無心漢)
+25  ; Homecoming                              ; 귀환
+26  ; Fracture                                ; 파열
+27  ; Prisons and Misgivings                  ; 철창과 불안
+28  ; Shattering Point                        ; 파괴점
+29  ; No Time, No Light                       ; 사라져 가는 시간, 꺼져 가는 빛 ; 직역
+30  ; The Burdened                            ; 마음의 짐
+31  ; The Prodigal Son                        ; 방탕아
+32  ; Gilded Cage                             ; 금빛 철창
+33  ; Onward to the Northern Kingdom          ; 북쪽 왕국으로
+34  ; Flower in the Mirror, Moon on the Water ; 거울 안의 꽃, 물 안의 달
+35  ; Yes, I Want to Build a Snowman          ; 그래, 같이 눈사람 만들자       ; See Cpt. 14
+36  ; A Dream That Must End                   ; 끝나야만 하는 꿈
+37  ; Acquainted With the Night               ; 어둠과의 동침
+38  ; Reborn By Ice and Thunder               ; 재탄생
+39  ; Release, Let Free                       ; 드러내. 자유롭게 해  ; 자체언급 Self-reference
+40  ; There Are No Limits                     ; 한계는 없어         ; 자체언급 Self-reference
+41  ; Cry Havoc                               ;  ; 셰익스피어
+42  ; Let Slip the Dogs of War                ; 전화(戰禍) ? ; 셰익스피어
+43  ; Truth, To the End of Reckoning          ;  ; 셰익스피어
+44  ; God Hath Given You One Face             ;  ; 셰익스피어
+45  ; Either Victory, Or Else A Grave         ; 
+46  ; The Tempest                             ;  ; 셰익스피어?
+47  ; Hell Is Empty                           ; 
+48  ; And All the Devils Are Here             ; 
+49  ; At the Heart of All Beauty              ;  ; 알베르 카뮈
+50  ; At the End of the World                 ; 
+51  ; Exeunt Omnes                            ; 전원 퇴장 ; 연극용어
+52  ; Thanks, Dedication, and Notes           ; 작가의 말
+91  ; Fine Dining                             ; 고급 식사
+92  ; Checkmate                               ; 체크메이트
+93  ; Unlucky Number Thirteen                 ; 불운의 수 십삼
+94  ; An Almost Meeting                       ; 이루어질 뻔한 만남
