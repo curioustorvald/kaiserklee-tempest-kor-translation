@@ -47,8 +47,8 @@ No. ; English                                 ; Korean           ; Comments
 38  ; Reborn By Ice and Thunder               ; 재탄생
 39  ; Release, Let Free                       ; 드러내. 자유롭게 해  ; 자체언급 Self-reference
 40  ; There Are No Limits                     ; 한계는 없어         ; 자체언급 Self-reference
-41  ; Cry Havoc                               ;  ; 셰익스피어
-42  ; Let Slip the Dogs of War                ; 전화(戰禍) ? ; 셰익스피어
+41  ; Cry Havoc                               ; 약탈 ? ; 셰익스피어
+42  ; Let Slip the Dogs of War                ; 전화 ? ; 셰익스피어
 43  ; Truth, To the End of Reckoning          ;  ; 셰익스피어
 44  ; God Hath Given You One Face             ;  ; 셰익스피어
 45  ; Either Victory, Or Else A Grave         ; 
