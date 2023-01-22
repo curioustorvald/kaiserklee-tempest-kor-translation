@@ -1,0 +1,31 @@
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+.directory
+*/.directory
+
+# Temporary files
+.tmp*
+tmp_*
+*.bak
+*-autosave.kra
+## Microsoft Office
+~$*
+## Generic temp files in Linux
+*~
+## Vim temp files
+*.swp
+*.swo
+
+## Manuscript concatenation output
+manuscrips/Tempest_kor.tex
+manuscrips/Tempest_side_kor.tex
+typesetting/Tempest_kor.tex
+typesetting/Tempest_side_kor.tex
+typesetting/*.aux
+typesetting/*.log
+typesetting/*.out
+typesetting/*.pdf
+typesetting/*.toc
+

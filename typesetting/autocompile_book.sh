@@ -4,6 +4,7 @@ command -v lualatex >/dev/null 2>&1 || { echo >&2 "LuaLaTeX not installed, abort
 command -v python >/dev/null 2>&1 || { echo >&2 "Python not installed, aborting."; exit 1; }
 command -v lua >/dev/null 2>&1 || { echo >&2 "Lua not installed, aborting."; exit 1; }
 
+export LC_ALL="en_US.UTF-8"
 
 rm Tempest_book_kor.aux
 rm Tempest_book_kor.log

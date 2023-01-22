@@ -35,18 +35,22 @@ name_list = glob.glob("??-*.tex")
 
 main_text_list = []
 side_text_list = []
-copying = [name_list[0]]
 
 main_file = "./Tempest_kor.tex"
 side_file = "./Tempest_side_kor.tex"
 
-name_list.remove(copying[0])
 
 for name in name_list:
 	if name[0:1] == "9": # if the file starts with 9
 		side_text_list.append(name)
 	else:
 		main_text_list.append(name)
+
+main_text_list.sort()
+side_text_list.sort()
+
+print(main_text_list)
+print(side_text_list)
 
 # main, all
 if mode & 0b01 == 1:
@@ -55,7 +59,8 @@ if mode & 0b01 == 1:
 	except OSError:
 		pass
 
-	for i in copying + main_text_list:
+	for i in main_text_list:
+		print(i)
 		cat_append(i, main_file)
 
 # side, all
@@ -65,6 +70,7 @@ if (mode & 0b10) >> 1 == 1:
 	except OSError:
 		pass
 
-	for i in copying + side_text_list:
+	for i in side_text_list:
+		print(i)
 		cat_append(i, side_file)
 
