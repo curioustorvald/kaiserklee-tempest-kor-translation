@@ -46,9 +46,12 @@ for line in io.lines(tocfile) do
 	if match then
 		cptnum = match:match(re_normalcpt_num)
 
-		-- why like this, Lua, why?
-		intmdline = string.format(line:gsub(re_normalcpt, re_normalcpt_intmd), cptnum)
-		printline(intmdline)
+		-- remove trailing % that may or may not be there
+		lline = line:gsub(re_normalcpt, re_normalcpt_intmd)
+		if string.sub(lline, -1) == "%" then
+			lline = string.sub(lline, 1, string.len(lline) - 1)
+		end
+		printline(string.format(lline, cptnum).."%")
 
 		is_prevline_chapter = true
 	
@@ -60,8 +63,13 @@ for line in io.lines(tocfile) do
 
 			sidenum = match:match(re_side_num)
 
-			intmdline = string.format(line:gsub(re_side, re_side_intmd), sidenum)
-			printline(intmdline)
+			-- remove trailing % that may or may not be there
+			lline = line:gsub(re_side, re_side_intmd)
+			if string.sub(lline, -1) == "%" then
+				lline = string.sub(lline, 1, string.len(lline) - 1)
+			end
+
+			printline(string.format(lline, sidenum).."%")
 
 			is_prevline_chapter = false
 		
